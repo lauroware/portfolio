@@ -5,7 +5,7 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
   <title>CV - Lauro Ware</title>
 
-  <!-- Bootstrap / Vendor (podés dejar solo lo que uses) -->
+  <!-- Bootstrap / Vendor -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
 
@@ -14,75 +14,65 @@
 
   <!-- Estilos específicos para CV/impresión -->
   <style>
-  /* ===== Layout A4 friendly ===== */
-  body { background: #fff; }
-  .cv-page { max-width: 900px; margin: 0 auto; padding: 18px; }
+    body { background: #fff; }
+    .cv-page { max-width: 900px; margin: 0 auto; padding: 18px; }
 
-  /* Botonera */
-  .cv-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 10px; }
-  .cv-actions a, .cv-actions button { border-radius: 10px; padding: 8px 12px; }
+    .cv-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 10px; }
+    .cv-actions a, .cv-actions button { border-radius: 10px; padding: 8px 12px; }
 
-  /* Tipografía compacta */
-  html, body { font-size: 14px; line-height: 1.25; }
-  h1 { font-size: 28px; margin: 0 0 2px; }
-  h4 { font-size: 16px; margin: 0; }
-  p { margin: 0 0 8px; }
-  ul { margin: 0; padding-left: 18px; }
-  li { margin: 0 0 3px; }
+    html, body { font-size: 14px; line-height: 1.25; }
+    h1 { font-size: 28px; margin: 0 0 2px; }
+    h4 { font-size: 16px; margin: 0; }
+    p { margin: 0 0 8px; }
+    ul { margin: 0; padding-left: 18px; }
+    li { margin: 0 0 3px; }
 
-  .cv-subtitle { color: #555; margin: 0 0 10px; }
+    .cv-subtitle { color: #555; margin: 0 0 10px; }
 
-  .cv-section { margin-top: 12px; }
-  .cv-section h2 {
-    font-size: 16px;
-    margin: 0 0 8px;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 4px;
-  }
+    .cv-section { margin-top: 12px; }
+    .cv-section h2 {
+      font-size: 16px;
+      margin: 0 0 8px;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 4px;
+    }
 
-  /* Items experiencia compactos */
-  .resume-item { margin: 0 0 10px; padding: 0; }
-  .resume-item > div { margin: 2px 0 6px; color: #444; }
+    .resume-item { margin: 0 0 10px; padding: 0; }
+    .resume-item > div { margin: 2px 0 6px; color: #444; }
 
-  /* Evitar que el encabezado quede solo al final */
-  header { break-after: avoid; page-break-after: avoid; }
+    header { break-after: avoid; page-break-after: avoid; }
 
-  /* ===== IMPRESIÓN ===== */
-  @page { size: A4; margin: 10mm; } /* clave para que no “se desmadre” */
+    /* A4 */
+    @page { size: A4; margin: 10mm; }
 
-  @media print {
-    .cv-actions { display: none !important; }
-    a { text-decoration: none !important; color: inherit !important; }
-    .cv-page { padding: 0 !important; max-width: none !important; }
+    @media print {
+      .cv-actions { display: none !important; }
+      a { text-decoration: none !important; color: inherit !important; }
+      .cv-page { padding: 0 !important; max-width: none !important; }
 
-    /* Mejor estrategia de cortes:
-       - Evitar que el TÍTULO de sección quede al final
-       - Permitir que el bloque grande se parta (si no, salta media página)
-       - Evitar partir bullets individualmente */
-    .cv-section { break-inside: auto; page-break-inside: auto; }
-    .cv-section h2 { break-after: avoid; page-break-after: avoid; }
+      .cv-section { break-inside: auto; page-break-inside: auto; }
+      .cv-section h2 { break-after: avoid; page-break-after: avoid; }
 
-    .resume-item { break-inside: auto; page-break-inside: auto; }
-    .resume-item ul { break-inside: auto; page-break-inside: auto; }
-    .resume-item li { break-inside: avoid; page-break-inside: avoid; }
+      .resume-item { break-inside: auto; page-break-inside: auto; }
+      .resume-item ul { break-inside: auto; page-break-inside: auto; }
+      .resume-item li { break-inside: avoid; page-break-inside: avoid; }
 
-    /* Para que los fondos (si existieran) salgan bien */
-    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-  }
-</style>
-
+      * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
+  </style>
 </head>
 
 <body>
-  <main class="cv-page">
+  <main class="cv-page" id="cvContent">
 
     <div class="cv-actions">
       <a class="btn btn-outline-dark" href="index.html">
         <i class="bi bi-arrow-left"></i> Volver al portfolio
       </a>
 
-      <button class="btn btn-dark" onclick="window.print()">
-        <i class="bi bi-printer"></i> Descargar PDF
+      <!-- AHORA DESCARGA PDF DIRECTO -->
+      <button type="button" class="btn btn-dark" onclick="descargarPDF()">
+        <i class="bi bi-filetype-pdf"></i> Descargar PDF
       </button>
     </div>
 
@@ -117,25 +107,24 @@
 
     <!-- SKILLS -->
     <section class="cv-section">
-  <h2>Skills</h2>
-  <div class="row">
-    <div class="col-6">
-      <ul>
-        <li>HTML, CSS, JavaScript, Bootstrap</li>
-        <li>React.js, React Native</li>
-        <li>SQL</li>
-      </ul>
-    </div>
-    <div class="col-6">
-      <ul>
-        <li>Word, Excel, PowerPoint</li>
-        <li>Photoshop, Illustrator, Figma, Canva</li>
-        <li>Inglés B1 · Español nativo</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
+      <h2>Skills</h2>
+      <div class="row">
+        <div class="col-6">
+          <ul>
+            <li>HTML, CSS, JavaScript, Bootstrap</li>
+            <li>React.js, React Native</li>
+            <li>SQL</li>
+          </ul>
+        </div>
+        <div class="col-6">
+          <ul>
+            <li>Word, Excel, PowerPoint</li>
+            <li>Photoshop, Illustrator, Figma, Canva</li>
+            <li>Inglés B1 · Español nativo</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
     <!-- EXPERIENCIA -->
     <section class="cv-section">
@@ -187,7 +176,6 @@
         <div><strong>2007 - 2010</strong> · CABA</div>
         <ul>
           <li>Gestión de cobranzas, límites crediticios, imputación y ajustes.</li>
-          <li>Reportes gerenciales y análisis en SAP.</li>
         </ul>
       </div>
 
@@ -198,7 +186,6 @@
           <li>Libros contables, trámites bancarios/AFIP y documentación de clientes.</li>
         </ul>
       </div>
-
     </section>
 
     <!-- EDUCACIÓN -->
@@ -225,5 +212,24 @@
     </section>
 
   </main>
+
+  <!-- html2pdf (DESCARGA DIRECTA) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script>
+    function descargarPDF() {
+      const element = document.getElementById('cvContent');
+
+      const opt = {
+        margin:       10,
+        filename:     'CV-Lauro-Ware.pdf',
+        image:        { type: 'jpeg', quality: 0.98 },
+        html2canvas:  { scale: 2, useCORS: true, backgroundColor: '#ffffff' },
+        jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' },
+        pagebreak:    { mode: ['css', 'legacy'] }
+      };
+
+      html2pdf().set(opt).from(element).save();
+    }
+  </script>
 </body>
 </html>
