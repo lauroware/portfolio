@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>CV - Lauro Ware</title>
+
+  <!-- Bootstrap / Vendor (podés dejar solo lo que uses) -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Tu CSS principal -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <!-- Estilos específicos para CV/impresión -->
+  <style>
+  /* ===== Layout A4 friendly ===== */
+  body { background: #fff; }
+  .cv-page { max-width: 900px; margin: 0 auto; padding: 18px; }
+
+  /* Botonera */
+  .cv-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 10px; }
+  .cv-actions a, .cv-actions button { border-radius: 10px; padding: 8px 12px; }
+
+  /* Tipografía compacta */
+  html, body { font-size: 14px; line-height: 1.25; }
+  h1 { font-size: 28px; margin: 0 0 2px; }
+  h4 { font-size: 16px; margin: 0; }
+  p { margin: 0 0 8px; }
+  ul { margin: 0; padding-left: 18px; }
+  li { margin: 0 0 3px; }
+
+  .cv-subtitle { color: #555; margin: 0 0 10px; }
+
+  .cv-section { margin-top: 12px; }
+  .cv-section h2 {
+    font-size: 16px;
+    margin: 0 0 8px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 4px;
+  }
+
+  /* Items experiencia compactos */
+  .resume-item { margin: 0 0 10px; padding: 0; }
+  .resume-item > div { margin: 2px 0 6px; color: #444; }
+
+  /* Evitar que el encabezado quede solo al final */
+  header { break-after: avoid; page-break-after: avoid; }
+
+  /* ===== IMPRESIÓN ===== */
+  @page { size: A4; margin: 10mm; } /* clave para que no “se desmadre” */
+
+  @media print {
+    .cv-actions { display: none !important; }
+    a { text-decoration: none !important; color: inherit !important; }
+    .cv-page { padding: 0 !important; max-width: none !important; }
+
+    /* Mejor estrategia de cortes:
+       - Evitar que el TÍTULO de sección quede al final
+       - Permitir que el bloque grande se parta (si no, salta media página)
+       - Evitar partir bullets individualmente */
+    .cv-section { break-inside: auto; page-break-inside: auto; }
+    .cv-section h2 { break-after: avoid; page-break-after: avoid; }
+
+    .resume-item { break-inside: auto; page-break-inside: auto; }
+    .resume-item ul { break-inside: auto; page-break-inside: auto; }
+    .resume-item li { break-inside: avoid; page-break-inside: avoid; }
+
+    /* Para que los fondos (si existieran) salgan bien */
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+
+</head>
+
+<body>
+  <main class="cv-page">
+
+    <div class="cv-actions">
+      <a class="btn btn-outline-dark" href="index.html">
+        <i class="bi bi-arrow-left"></i> Volver al portfolio
+      </a>
+
+      <button class="btn btn-dark" onclick="window.print()">
+        <i class="bi bi-printer"></i> Descargar PDF
+      </button>
+    </div>
+
+    <header class="mb-3">
+      <h1>Lauro Ware</h1>
+      <div class="cv-subtitle">
+        Frontend / Mobile Dev · Economista · Emprendedor
+      </div>
+
+      <div class="row g-2">
+        <div class="col-md-6">
+          <div><i class="bi bi-geo-alt"></i> Buenos Aires, Argentina</div>
+          <div><i class="bi bi-phone"></i> +54 11 6236-6175</div>
+          <div><i class="bi bi-envelope"></i> lauro.ware@gmail.com</div>
+        </div>
+        <div class="col-md-6">
+          <div><i class="bi bi-linkedin"></i> linkedin.com/in/lauro-ware36a3a6211</div>
+          <div><i class="bi bi-github"></i> github.com/lauroware</div>
+          <div><i class="bi bi-google-play"></i> Google Play Dev</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- PERFIL -->
+    <section class="cv-section">
+      <h2>Perfil</h2>
+      <p>
+        Mi objetivo es continuar con mi desarrollo personal y profesional, trabajando en equipo con personas dinámicas y proactivas
+        que me ayuden a potenciar mis habilidades y conocimientos.
+      </p>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="cv-section">
+  <h2>Skills</h2>
+  <div class="row">
+    <div class="col-6">
+      <ul>
+        <li>HTML, CSS, JavaScript, Bootstrap</li>
+        <li>React.js, React Native</li>
+        <li>SQL</li>
+      </ul>
+    </div>
+    <div class="col-6">
+      <ul>
+        <li>Word, Excel, PowerPoint</li>
+        <li>Photoshop, Illustrator, Figma, Canva</li>
+        <li>Inglés B1 · Español nativo</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+    <!-- EXPERIENCIA -->
+    <section class="cv-section">
+      <h2>Experiencia</h2>
+
+      <div class="resume-item">
+        <h4>LatinMerch - LatinNexo · Cofundador</h4>
+        <div><strong>2025 - Presente</strong> · CABA, Buenos Aires</div>
+        <ul>
+          <li>Diseño, desarrollo y comercialización de productos físicos y digitales.</li>
+          <li>Mockups y piezas gráficas: logos, archivos finales para impresión.</li>
+          <li>Desarrollo de sitios y apps (front-end + lógica funcional).</li>
+          <li>Gestión integral: concepto → diseño → desarrollo → producción → venta.</li>
+        </ul>
+      </div>
+
+      <div class="resume-item">
+        <h4>TOTINAS · Cofundador &amp; Responsable Administrativo</h4>
+        <div><strong>2015 - Presente</strong> · CABA, Buenos Aires</div>
+        <ul>
+          <li>Definición y expansión del portfolio de producto.</li>
+          <li>Identidad de marca y coherencia visual/comunicacional.</li>
+          <li>Gestión administrativa y financiera.</li>
+          <li>Mantenimiento del sitio web y adaptación responsive.</li>
+        </ul>
+      </div>
+
+      <div class="resume-item">
+        <h4>Banco Credicoop · Ejecutivo de Cuenta</h4>
+        <div><strong>2010 - 2021</strong> · GBA, Buenos Aires</div>
+        <ul>
+          <li>Venta y asesoramiento en productos bancarios y servicios financieros.</li>
+          <li>Análisis crediticio, instrumentación de créditos y garantías.</li>
+          <li>Desarrollo de cartera, foco en crecimiento y calidad de servicio.</li>
+          <li>Trabajo con normativa y cumplimiento regulatorio.</li>
+        </ul>
+      </div>
+
+      <div class="resume-item">
+        <h4>UBA · Auxiliar Docente (Estadística y Análisis Matemático)</h4>
+        <div><strong>2005 - 2016</strong> · CABA y GBA</div>
+        <ul>
+          <li>Clases prácticas/teóricas, corrección de exámenes y acompañamiento académico.</li>
+        </ul>
+      </div>
+
+      <div class="resume-item">
+        <h4>Beiersdorf S.A. · Analista Jr. Créditos / Cobranzas</h4>
+        <div><strong>2007 - 2010</strong> · CABA</div>
+        <ul>
+          <li>Gestión de cobranzas, límites crediticios, imputación y ajustes.</li>
+          <li>Reportes gerenciales y análisis en SAP.</li>
+        </ul>
+      </div>
+
+      <div class="resume-item">
+        <h4>AMB y Asoc. Consultores S.A. · Analista Contable</h4>
+        <div><strong>2004 - 2007</strong> · CABA</div>
+        <ul>
+          <li>Libros contables, trámites bancarios/AFIP y documentación de clientes.</li>
+        </ul>
+      </div>
+
+    </section>
+
+    <!-- EDUCACIÓN -->
+    <section class="cv-section">
+      <h2>Educación</h2>
+      <ul>
+        <li><strong>Lic. en Economía</strong> — Universidad de Buenos Aires</li>
+        <li><strong>Fullstack developer (Python)</strong> — Codo a Codo 4.0</li>
+        <li><strong>Fullstack developer (JS)</strong> — Coderhouse</li>
+        <li><strong>React Native</strong> — Coderhouse</li>
+        <li><strong>UX/UI</strong> — Codo a Codo 4.0 / Coderhouse</li>
+        <li><strong>Marketing digital</strong> — Google Activate</li>
+      </ul>
+    </section>
+
+    <!-- REFERENCIAS -->
+    <section class="cv-section">
+      <h2>Referencias</h2>
+      <ul>
+        <li>Sebastián Taladriz (Gerente RRHH Beiersdorf) — Solicitar contacto</li>
+        <li>Silvina Sosa (Gerencia Zonal Banco Credicoop) — Solicitar contacto</li>
+        <li>Gabriela Imen (Gerencia Zonal Banco Credicoop) — Solicitar contacto</li>
+      </ul>
+    </section>
+
+  </main>
+</body>
+</html>
